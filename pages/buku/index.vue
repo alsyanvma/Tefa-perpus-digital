@@ -32,6 +32,7 @@
 const supabase=useSupabaseClient()
 const keyword = ref('')
 const books = ref([])
+const jumlah = ref ([])
 
 const getBooks = async () => {
     const { data, error } = await supabase.from('buku').select(`*, kategori(*)`)
@@ -47,6 +48,7 @@ const totalBuku = async () => {
 
 onMounted(() => {
     getBooks()
+    totalBuku()
 })
 </script>
 

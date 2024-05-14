@@ -27,8 +27,7 @@
                 <nuxt-link to ="/pengunjung">
                 <div class="card bg-warning rounded-5">
                     <div class="card-body">
-                        <div class="angka-statistik">32 <span class="label-statistik">Pengunjung</span></div>
-                    </div>
+                        <h2 class="font"> {{ jumlahpengunjung}} Pengunjung</h2>                    </div>
                 </div>
                 </nuxt-link>
             </div>
@@ -37,7 +36,7 @@
                 <nuxt-link to="/buku">
                 <div class="card bg-success rounded-5">
                     <div class="card-body">
-                        <div class="angka-statistik">180 <span class="label-statistik">Buku</span></div>
+                        <h6 class="font"> {{jumlahbuku}} Buku </h6>
                     </div>
                 </div>
                 </nuxt-link>
@@ -47,8 +46,38 @@
     </div>
 </template>
 
+<script setup>
+const supabase = useSupabaseClient();
+const jumlahpengunjung = ref (0);
+const jumlahbuku = ref (0);
+
+
+async function ambiljumlahpengunjung() {
+    const { data,error, count} = await supabase
+    .from("pengunjung")
+    .select("*", {count: 'exact'});
+    if (count) jumlahpengunjung.value = count;
+}
+async function ambiljumlahbuku() {
+    const { data,error, count} = await supabase
+    .from("buku")
+    .select("*", {count: 'exact'});
+    if (count) jumlahbuku.value = count;
+}
+
+
+onMounted(() => {
+    ambiljumlahpengunjung();
+    ambiljumlahbuku();
+})
+</script>
+
+
+
+
 
 <style scoped>
+
 .card {
     height: 250px;
     box-shadow: 1px 1px 10px #424242;
@@ -84,6 +113,14 @@
 h1 {
     color: black;
     font-size: 30px;
+    
+}
+
+h2 {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    margin: 70px;
 }
 
 h3 {
@@ -106,6 +143,13 @@ h5{
     color: black;
     justify-content: center;
     font-size: 30px;
+}
+
+h6 {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+    margin: 70px;
 }
 
 </style>
