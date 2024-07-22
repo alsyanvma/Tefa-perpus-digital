@@ -111,13 +111,14 @@ onMounted(() => {
 }
 
 h1 {
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 30px;
+    margin: 15px;
     
 }
 
 h2 {
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 30px;
     text-align: center;
     margin: 70px;
@@ -140,13 +141,13 @@ h4 {
 }
 
 h5{
-    color: black;
+    color: rgb(255, 255, 255);
     justify-content: center;
     font-size: 30px;
 }
 
 h6 {
-    color: black;
+    color: rgb(255, 255, 255);
     font-size: 30px;
     text-align: center;
     margin: 70px;
