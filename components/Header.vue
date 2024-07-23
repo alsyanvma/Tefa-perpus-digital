@@ -22,7 +22,7 @@
 
 .col-lg-11 {
     position: absolute;
-    top: 50px;
+    top: 30px;
     left:180px;
 }
 </style>
