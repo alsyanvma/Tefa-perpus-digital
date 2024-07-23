@@ -15,7 +15,6 @@
                     <li class="list-group-item">Penerbit : {{ buku.penerbit}}</li>
                     <li class="list-group-item">Tahun_terbit : {{ buku.tahun_terbit}}</li>
                     <li class="list-group-item">{{ buku.deskripsi}}</li>
-                    <li class="list-group-item"> Halaman : </li>
                     <li class="list-group-item">
                         <span v-if="buku.kategori">Kategori : {{ buku.kategori.nama }}</span>
                         <span v-else>loading...</span>
